@@ -163,7 +163,7 @@
         <div id="login-body">
           <h1>Entrar</h1>
           <form>
-              <label>E-mail:</label><input class="input-login" type="text">
+              <label>E-mail:</label><input id="input-email" class="input-login" type="text">
               <label>Senha:</label>
               <div class="passwordSpy">
                   <input class="input-login" id="login-password" type="password">
@@ -174,7 +174,7 @@
               <div id="manterConectado"><input type="checkbox"> Manter conectado</div>
 
               
-              <button id="botaoLogin">Entrar<i class="menuIcon material-icons">login</i></button>
+              <button id="botaoLogin" onclick="verificaEmail()">Entrar<i class="menuIcon material-icons">login</i></button>
           </form>
       </div>
 

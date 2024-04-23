@@ -3,6 +3,7 @@ function mostrarApenasHome() {
     document.getElementById('divHome').style.display = "block"
     document.getElementById('login-body').style.display = "none"
     document.getElementById('nova-conta').style.display = "none"
+    clearInterval(window.intervaloLogin)
 }
 
 function mostrarApenasLogin() {
@@ -10,7 +11,7 @@ function mostrarApenasLogin() {
     document.getElementById('login-body').style.display = "block"
     document.getElementById('nova-conta').style.display = "none"
     limpaInput("input-login")
-    setInterval(verificaBotaoLogin, 1000)
+    window.intervaloLogin = setInterval(verificaBotaoLogin, 1000)
 }
 
 function mostrarApenasConta() {
@@ -18,6 +19,7 @@ function mostrarApenasConta() {
     document.getElementById('login-body').style.display = "none"
     document.getElementById('nova-conta').style.display = "block"
     limpaInput("input-conta")
+    clearInterval(window.intervaloLogin)
 }
 
 function limpaInput(classe){
@@ -34,6 +36,15 @@ function verificaBotaoLogin (){
     }
     else {
         botaoLogin.style.display = "flex"
+    }
+}
+
+function verificaEmail (){
+    let inputEmail = document.getElementById("input-email")
+    if (inputEmail.value.includes("@")){
+        mostrarApenasHome()
+    } else {
+        window.alert("Email inválido!")
     }
 }
 
